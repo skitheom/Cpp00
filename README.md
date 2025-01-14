@@ -6,15 +6,15 @@ C++の基本概念（名前空間、クラス、メンバ関数、初期化リ�
 
 ## Exercises
 ### Exercise 00: Megaphone
-コマンドライン引数を大文字に変換して出力するプログラム
+- コマンドライン引数を大文字に変換して出力するプログラム
 
 ### Exercise 01: My Awesome PhoneBook
-シンプルな電話帳プログラム
+- シンプルな電話帳プログラム
 
 ### Exercise 02: The Job Of Your Dreams -> 未着手
-紛失したAccount.cppを再作成し、提供されたテストコードを通過させる
-提供されるAccount.hppとログファイルを参考に実装
-テストの出力がログファイルと一致する必要がある（タイムスタンプは除く）
+- 紛失したAccount.cppを再作成し、提供されたテストコードを通過させる
+- 提供されるAccount.hppとログファイルを参考に実装
+- テストの出力がログファイルと一致する必要がある（タイムスタンプは除く）
 
 ## References
 [CPP Module 00(For 42 École Students Only)](https://projects.intra.42.fr/projects/cpp-module-00)
