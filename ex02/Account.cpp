@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:37:15 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/15 08:30:57 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/15 08:35:57 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,13 @@ index:4;p_amount:1321;withdrawal:76;amount:1245;nb_withdrawals:1
 index:6;p_amount:763;withdrawal:657;amount:106;nb_withdrawals:1
 [19920104_091532]
 index:7;p_amount:16596;withdrawal:7654;amount:8942;nb_withdrawals:1
+
+        std::time_t	timestamp = std::time(NULL);
+        std::tm		*local_time = std::localtime(&timestamp);
+        char		time_buffer[20];
+
+        std::strftime(time_buffer, sizeof(time_buffer), "[%Y%m%d_%H%M%S] ",
+local_time); std::cout << time_buffer;
  */
 
 bool Account::makeWithdrawal(int withdrawal) {
