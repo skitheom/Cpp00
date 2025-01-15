@@ -12,8 +12,7 @@
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-NAME     := a.out
+NAME     := ex02
 SRCS     := Account.cpp tests.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
@@ -33,10 +32,13 @@ fclean: clean
 
 re: fclean all
 
+test: CXXFLAGS += -DACCOUNT_USE_FIXED_TIMESTAMP
 test: $(NAME)
-	@echo "== Running Tests  =="
-	./$(NAME)
+	@echo "== Running Tests =="
+	./$(NAME) > tmp.log
+	diff --color 19920104_091532.log tmp.log || (echo "Test Failed"; exit 1)
 	@echo "== Tests Completed =="
+
 
 debug: CXXFLAGS += -fsanitize=address -g
 debug: $(NAME)
