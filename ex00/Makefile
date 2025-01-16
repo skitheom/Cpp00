@@ -6,21 +6,20 @@
 #    By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:29:24 by sakitaha          #+#    #+#              #
-#    Updated: 2024/11/23 19:07:36 by sakitaha         ###   ########.fr        #
+#    Updated: 2025/01/17 01:48:23 by sakitaha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-TARGET   := megaphone
+NAME     := ex00
 SRCS     := megaphone.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -29,18 +28,18 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
-test: $(TARGET)
+test: $(NAME)
 	@echo "== Running Tests =="
-	./$(TARGET) "shhhhh... I think the students are asleep..."
-	./$(TARGET) Damnit " ! " "Sorry students, I thought this thing was off."
-	./$(TARGET)
+	./$(NAME) "shhhhh... I think the students are asleep..."
+	./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+	./$(NAME)
 	@echo "== Tests Completed =="
 
 debug: all
-	valgrind --leak-check=full ./$(TARGET)
+	valgrind --leak-check=full ./$(NAME)
 
 .PHONY: all clean fclean re test debug

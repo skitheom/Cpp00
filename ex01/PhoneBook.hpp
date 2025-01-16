@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 19:08:17 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/11/23 19:08:18 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:24:34 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
   int getInputNum();
   void addContact();
   void displayElement(const std::string &element);
+  void displayLine();
   void displayHeader();
   void displayContactList();
   void displayContact(int index);

@@ -6,7 +6,7 @@
 #    By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 16:15:58 by sakitaha          #+#    #+#              #
-#    Updated: 2025/01/14 17:33:27 by sakitaha         ###   ########.fr        #
+#    Updated: 2025/01/17 03:53:30 by sakitaha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) tmp.log
 
 fclean: clean
 	$(RM) $(NAME)
@@ -33,7 +33,7 @@ fclean: clean
 re: fclean all
 
 test: CXXFLAGS += -DACCOUNT_USE_FIXED_TIMESTAMP
-test: $(NAME)
+test: re
 	@echo "== Running Tests =="
 	./$(NAME) > tmp.log
 	diff --color 19920104_091532.log tmp.log || (echo "Test Failed"; exit 1)

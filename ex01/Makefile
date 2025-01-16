@@ -6,21 +6,20 @@
 #    By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 16:15:58 by sakitaha          #+#    #+#              #
-#    Updated: 2024/11/23 19:08:10 by sakitaha         ###   ########.fr        #
+#    Updated: 2025/01/17 02:14:19 by sakitaha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-TARGET   := phonebook
+NAME     := ex01
 SRCS     := main.cpp Contact.cpp PhoneBook.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -29,16 +28,16 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
-test: $(TARGET)
+test: $(NAME)
 	@echo "== Running Tests =="
-	./$(TARGET)
+	./$(NAME)
 	@echo "== Tests Completed =="
 
 debug: all
-	valgrind --leak-check=full ./$(TARGET)
+	valgrind --leak-check=full ./$(NAME)
 
 .PHONY: all clean fclean re test debug

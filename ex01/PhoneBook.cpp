@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 19:07:12 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/11/23 19:08:13 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:44:32 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <limits>
 #include <sstream>
+
+// TODO: 電話番号の値チェック（数字と'-'以外を許容しない）
 
 PhoneBook::PhoneBook() : nextIndex(0) {}
 
@@ -81,14 +83,19 @@ void PhoneBook::displayElement(const std::string &str) {
   std::cout << std::setw(WIDTH) << std::right << output << '|';
 }
 
+void PhoneBook::displayLine() {
+  std::cout << "*" << std::string(WIDTH * 4 + 3, '-') << "*" << std::endl;
+}
+
 void PhoneBook::displayHeader() {
+  displayLine();
   std::cout << "|";
   displayElement("index");
   displayElement("first name");
   displayElement("last name");
   displayElement("nickname");
   std::cout << std::endl;
-  std::cout << std::string(WIDTH * 4 + 4, '-') << std::endl;
+  displayLine();
 }
 
 void PhoneBook::displayContactList() {
@@ -132,6 +139,7 @@ void PhoneBook::searchContact() {
   }
   displayHeader();
   displayContactList();
+  displayLine();
   displayContact(getInputNum());
 }
 
@@ -140,11 +148,11 @@ void PhoneBook::startPhoneBook() {
 
   while (true) {
     cmd = getInputStr("Command > ");
-    if (cmd.compare("ADD") == 0)
+    if (cmd.compare("ADD") == 0 || cmd.compare("add") == 0)
       addContact();
-    else if (cmd.compare("SEARCH") == 0)
+    else if (cmd.compare("SEARCH") == 0 || cmd.compare("search") == 0)
       searchContact();
-    else if (cmd.compare("EXIT") == 0)
+    else if (cmd.compare("EXIT") == 0 || cmd.compare("exit") == 0)
       exit(EXIT_SUCCESS);
     else
       std::cout << "Error: Invalid command" << std::endl;
