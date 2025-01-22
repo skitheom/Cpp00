@@ -17,8 +17,6 @@
 #include <limits>
 #include <sstream>
 
-// TODO: 電話番号の値チェック（数字と'-'以外を許容しない）
-
 PhoneBook::PhoneBook() : nextIndex(0) {}
 
 void PhoneBook::printErrorExit(const char *errorMsg) {
